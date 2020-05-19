@@ -17,24 +17,24 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
 
-    func commandTerminationHandler(task: NSTask) -> Void {
-        runButton.enabled = true
+    func commandTerminationHandler(task: Process) -> Void {
+        runButton.isEnabled = true
     }
     
     @IBAction func runScript(sender: AnyObject) {
-        runButton.enabled = false
+        runButton.isEnabled = false
         
         // path to script or bash command
-        let script = "~/test.sh"
-        //let script = "echo Hello World!"
+        let script = "/Users/Richard.Kifvel/swiftscriptrunner/Create_a_Ticket.sh"
+        //let script = "say Hello World!"
         
-        let task = NSTask()
+        let task = Process()
         task.terminationHandler = self.commandTerminationHandler
         task.launchPath = "/bin/bash"
         task.arguments = ["-c", script]
         task.launch()
     }
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }

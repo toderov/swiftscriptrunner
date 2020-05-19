@@ -1,3 +1,3 @@
-#/bin/bash
+#!/bin/bash
 
-touch ~/test.txt
+say hello
